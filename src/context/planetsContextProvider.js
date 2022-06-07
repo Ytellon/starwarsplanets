@@ -6,6 +6,7 @@ import getUrlPlanets from '../services/planetsApi';
 function PlanetsContextProvider({ children }) {
   const [data, setData] = useState([]);
   const [titlesPlanets, setTitlesPlanets] = useState([]);
+  const [filterByName, setFilterByName] = useState({ name: '' });
 
   useEffect(() => {
     const savedPlanets = async () => {
@@ -17,7 +18,7 @@ function PlanetsContextProvider({ children }) {
     savedPlanets();
   }, []);
 
-  const contextValue = { data, titlesPlanets };
+  const contextValue = { data, titlesPlanets, setFilterByName, filterByName };
 
   return (
     <Context.Provider value={ contextValue }>
