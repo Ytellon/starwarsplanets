@@ -1,24 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Context from '../context/planetsContext';
 import Header from './HeaderSearch';
+import Form from './Form';
 
 function Table() {
-  const { titlesPlanets, data, filterByName } = useContext(Context);
-  const [filterPlanets, setFilterPlanets] = useState([]);
-
-  useEffect(() => {
-    if (filterByName.name === '') {
-      setFilterPlanets(data);
-    } else {
-      const filteredPlanets = data.filter((planet) => planet.name.toLowerCase()
-        .includes(filterByName.name.toLowerCase()));
-      setFilterPlanets(filteredPlanets);
-    }
-  }, [filterByName, data]);
+  const { titlesPlanets, filterPlanets } = useContext(Context);
 
   return (
     <div>
       <Header />
+      <Form />
       <table>
         <thead>
           <tr>
