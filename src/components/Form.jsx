@@ -5,6 +5,13 @@ function Form() {
   const [column, setColumn] = useState('population');
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState(0);
+  const [optionSelected, setOptionSelected] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
   const { setFilterByNumericValues, filterByNumericValues } = useContext(Context);
 
   const handleNumericFilter = () => {
@@ -13,6 +20,8 @@ function Form() {
       comparison,
       value,
     };
+    const optionFilter = optionSelected.filter((option) => option !== column);
+    setOptionSelected(optionFilter);
     setFilterByNumericValues([...filterByNumericValues, filteredPlanets]);
   };
 
@@ -22,11 +31,11 @@ function Form() {
         onChange={ (event) => setColumn(event.target.value) }
         data-testid="column-filter"
       >
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        {optionSelected.map((option) => (
+          <option key={ option } value={ option }>
+            {option}
+          </option>
+        ))}
       </select>
       <select
         onChange={ (event) => setComparison(event.target.value) }
