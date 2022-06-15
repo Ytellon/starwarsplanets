@@ -2,18 +2,25 @@ import React, { useState, useContext } from 'react';
 import Context from '../context/planetsContext';
 
 function Form() {
-  const [column, setColumn] = useState('population');
-  const [comparison, setComparison] = useState('maior que');
-  const [value, setValue] = useState(0);
-  const [optionSelected, setOptionSelected] = useState([
+  const someColumns = [
     'population',
     'orbital_period',
     'diameter',
     'rotation_period',
     'surface_water',
-  ]);
+  ];
+  const [column, setColumn] = useState('population');
+  const [comparison, setComparison] = useState('maior que');
+  const [value, setValue] = useState(0);
+  const [optionSelected, setOptionSelected] = useState(someColumns);
 
-  const { setFilterByNumericValues, filterByNumericValues } = useContext(Context);
+  const {
+    setFilterByNumericValues,
+    filterByNumericValues,
+    setSaveColums,
+    setSaveOrder,
+    changeOrder,
+  } = useContext(Context);
 
   const handleNumericFilter = () => {
     const filteredPlanets = {
@@ -36,13 +43,7 @@ function Form() {
 
   const removeAllFilters = () => {
     setFilterByNumericValues([]);
-    setOptionSelected([
-      'population',
-      'orbital_period',
-      'diameter',
-      'rotation_period',
-      'surface_water',
-    ]);
+    setOptionSelected(someColumns);
   };
 
   return (
@@ -87,6 +88,39 @@ function Form() {
         >
           Remove Filters
         </button>
+        <label htmlFor="order">
+          <select
+            onChange={ (event) => setSaveColums(event.target.value) }
+            id="order"
+          >
+            {someColumns.map((option, index) => (
+              <option key={ index } value={ option }>
+                {option}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="ascend">
+          ascendente
+          <input
+            onChange={ (event) => setSaveOrder(event.target.value) }
+            value="asc"
+            name="order"
+            id="ascend"
+            type="radio"
+          />
+        </label>
+        <label htmlFor="descend">
+          descendente
+          <input
+            onChange={ (event) => setSaveOrder(event.target.value) }
+            value="desc"
+            name="order"
+            id="descend"
+            type="radio"
+          />
+        </label>
+        <button onClick={ changeOrder } type="button">Order</button>
       </form>
       <section>
         {filterByNumericValues.map((filterPlanet, index) => (
