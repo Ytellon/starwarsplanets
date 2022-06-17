@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/starwarsplanets/static/css/main.58d82569.css",
+    "main.js": "/starwarsplanets/static/js/main.325b7130.js",
+    "static/media/star-wars-4 (1).svg": "/starwarsplanets/static/media/star-wars-4 (1).3bf2a05eba37f49b9b0ddfa3920fb34f.svg",
+    "index.html": "/starwarsplanets/index.html",
+    "main.58d82569.css.map": "/starwarsplanets/static/css/main.58d82569.css.map",
+    "main.325b7130.js.map": "/starwarsplanets/static/js/main.325b7130.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58d82569.css",
+    "static/js/main.325b7130.js"
+  ]
+}
