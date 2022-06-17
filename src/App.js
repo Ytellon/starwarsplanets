@@ -7,7 +7,6 @@ function App() {
   return (
     <PlanetsContextProvider>
       <Table />
-      <span>Hello, App start!</span>
     </PlanetsContextProvider>
   );
 }

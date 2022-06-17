@@ -24,7 +24,11 @@ function PlanetsContextProvider({ children }) {
       setFilterPlanets(resultPlanets);
       setTitlesPlanets(
         Object.keys(resultPlanets[0]).filter(
-          (planets) => planets !== 'residents',
+          (planets) => planets !== 'residents'
+          && planets !== 'films'
+          && planets !== 'created'
+          && planets !== 'edited'
+          && planets !== 'url',
         ),
       );
     };

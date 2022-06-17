@@ -1,0 +1,101 @@
+/* stylelint-disable order/properties-alphabetical-order */
+.formStyle {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.formStyle > select, .formStyle > label > select {
+  background-color: #0d0d0d;
+  border-radius: 6px;
+  color: white;
+  outline: none;
+  padding: 10px;
+}
+
+.formStyle > select:focus, .formStyle > label > select:focus {
+  border: 2px solid #f2e41b;
+}
+
+.formStyle > input {
+  background-color: #0d0d0d;
+  border: 2px solid white;
+  border-radius: 6px;
+  color: white;
+  font-size: large;
+  outline: none;
+  padding: 6px;
+  width: 10%;
+}
+
+.radioContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.planetLabel {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  justify-content: space-evenly;
+}
+
+.planetLabel > input {
+  visibility: hidden;
+}
+
+.planetLabel > input + svg {
+  cursor: pointer;
+  font-size: large;
+}
+
+.formStyle > input:focus {
+  border: 2px solid #f2e41b;
+}
+
+.formStyle > button {
+  background-color: #0d0d0d;
+  border: 2px solid #f2e41b;
+  border-radius: 6px;
+  color: #f2e41b;
+  cursor: pointer;
+  font-size: large;
+  padding: 6px;
+  width: 10%;
+}
+
+.filterDone {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.filterDone > div {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  padding: 30px;
+  font-size: large;
+}
+
+.filterDone > div > button {
+  font-size: large;
+  background-color: #0d0d0d;
+  color: #f2e41b;
+  border: none;
+  cursor: pointer;
+}
+
+.formStyle > button:hover {
+  background-color: rgba(245, 231, 35, 0.2);
+}
+
+.planetLabel > input:checked + svg {
+  color: #f2e41b;
+}
+
+.filterDone > div > button > svg:hover {
+  box-shadow: 0 1px #f2e41b;
+}
+

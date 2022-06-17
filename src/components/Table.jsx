@@ -2,23 +2,24 @@ import React, { useContext } from 'react';
 import Context from '../context/planetsContext';
 import Header from './HeaderSearch';
 import Form from './Form';
+import styles from '../styles/Table.module.css';
 
 function Table() {
   const { titlesPlanets, filterPlanets } = useContext(Context);
 
   return (
-    <div>
+    <div className={ styles.containerTable }>
       <Header />
       <Form />
       <table>
-        <thead>
+        <thead className={ styles.containerThead }>
           <tr>
             {titlesPlanets.map((title, index) => (
               <th key={ index }>{title.toUpperCase().replace('_', ' ')}</th>
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className={ styles.containerTbody }>
           {filterPlanets.map((planet, index) => (
             <tr key={ index }>
               <td>{planet.name}</td>
@@ -30,14 +31,6 @@ function Table() {
               <td>{planet.terrain}</td>
               <td>{planet.surface_water}</td>
               <td>{planet.population}</td>
-              <td>
-                {planet.films.map((film) => (
-                  <span key={ film }>{film}</span>
-                ))}
-              </td>
-              <td>{planet.created}</td>
-              <td>{planet.edited}</td>
-              <td>{planet.url}</td>
             </tr>
           ))}
         </tbody>

@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
+import { IoPlanetSharp, IoTrashBin } from 'react-icons/io5';
 import Context from '../context/planetsContext';
+import styles from '../styles/Form.module.css';
 
 function Form() {
   const someColumns = [
@@ -48,7 +50,7 @@ function Form() {
 
   return (
     <div>
-      <form>
+      <form className={ styles.formStyle }>
         <select
           onChange={ (event) => setColumn(event.target.value) }
           data-testid="column-filter"
@@ -100,29 +102,33 @@ function Form() {
             ))}
           </select>
         </label>
-        <label htmlFor="ascend">
-          ascendente
-          <input
-            onChange={ (event) => setSaveOrder(event.target.value) }
-            value="asc"
-            name="order"
-            id="ascend"
-            type="radio"
-          />
-        </label>
-        <label htmlFor="descend">
-          descendente
-          <input
-            onChange={ (event) => setSaveOrder(event.target.value) }
-            value="desc"
-            name="order"
-            id="descend"
-            type="radio"
-          />
-        </label>
+        <div className={ styles.radioContainer }>
+          <label className={ styles.planetLabel } htmlFor="ascend">
+            ascendente
+            <input
+              onChange={ (event) => setSaveOrder(event.target.value) }
+              value="asc"
+              name="order"
+              id="ascend"
+              type="radio"
+            />
+            <IoPlanetSharp />
+          </label>
+          <label className={ styles.planetLabel } htmlFor="descend">
+            descendente
+            <input
+              onChange={ (event) => setSaveOrder(event.target.value) }
+              value="desc"
+              name="order"
+              id="descend"
+              type="radio"
+            />
+            <IoPlanetSharp />
+          </label>
+        </div>
         <button onClick={ changeOrder } type="button">Order</button>
       </form>
-      <section>
+      <section className={ styles.filterDone }>
         {filterByNumericValues.map((filterPlanet, index) => (
           <div data-testid="filter" key={ index }>
             <p>
@@ -132,7 +138,7 @@ function Form() {
               onClick={ () => removeFilter(filterPlanet.column) }
               type="button"
             >
-              X
+              <IoTrashBin />
             </button>
           </div>
         ))}

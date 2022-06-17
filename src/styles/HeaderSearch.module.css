@@ -1,0 +1,33 @@
+/* stylelint-disable order/properties-alphabetical-order */
+.headerSearch {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  flex-direction: column;
+}
+
+.headerSearch > input {
+  background-color: #0d0d0d;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  outline: none;
+  padding: 15px;
+  width: 30%;
+  font-size: large;
+}
+
+.headerSearch > input:focus {
+  border: 2px solid #f2e41b;
+}
+
+.headerSearch > input::placeholder {
+  font-size: large;
+}
+
+.headerSearch > img {
+  width: 50%;
+  margin: 90px;
+}
+
